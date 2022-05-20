@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1><%= @list.name %></h1>
+      <h1><% @list.bookmarks %></h1>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+          <ul><% @list.bookmarks.each do |b| %>
+            <th scope="row">Comment</th>
+            <td> <%= b.comment %> </td>
+          </tr>
+          <tr>
+          <th scope="row">Movie</th>
+            <td><%= b.movie.title %></td>
+        </tbody>
+      </table>
+    <% end %>
+</ul>
