@@ -1,19 +1,19 @@
+
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1><%= @list.name %></h1>
-      <h1><% @list.bookmarks %></h1>
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-          <ul><% @list.bookmarks.each do |b| %>
-            <th scope="row">Comment</th>
-            <td> <%= b.comment %> </td>
-          </tr>
-          <tr>
-          <th scope="row">Movie</th>
-            <td><%= b.movie.title %></td>
-        </tbody>
-      </table>
-    <% end %>
-</ul>
+  <h1><%= @list.name %></h1>
+  <% if @list.photo.attached? %>
+      <%= cl_image_tag @list.photo.key, height: 300, width: 400 %>
+  <% end %>
+  <% @list.bookmarks.each do |b| %>
+    <div class="card-product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Back-to-the-future-logo.svg/1200px-Back-to-the-future-logo.svg.png" height: 300, width: 400, >
+      <div class="card-product-infos">
+        <h2><%= b.movie.title %></h2>
+        <p><%= b.movie.rating %></p>
+        <br>
+
+      </div>
+
+    </div>
+  <% end %>
+</div>
